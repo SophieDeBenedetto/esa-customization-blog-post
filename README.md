@@ -46,6 +46,7 @@ export default Base.extend({
         run(() => {
           debugger;
           resolve({
+            // store token in localStorage
             token: jwt
           });
         });
@@ -72,3 +73,5 @@ Allows you to write asynchronous code in a synchronous fashion. a `Promise` obje
 Instantiate a new `Promise` object, giving it an anonymous function that takes two arguments, `resolve` and `reject`, which are both functions. Your anych code goes in the body of that parent anon function--i.e. making your ajax request. Then, if you get a successful response, invoke the resolve function, passing it an argument of the response, if you don't get a successful response back, invoke the reject function, passing it an argument of the error you got back from your web request. 
 
 You can then chain functions onto your promise. The `then` function gets invoked if `resolve` was invoked, getting passed an argument of the return value of `resolved`. The `catch` function gets invoked if the `reject` function was invoked, getting passed an argument of the return value of  `reject`. 
+
+* run loop : https://guides.emberjs.com/v2.5.0/applications/run-loop/

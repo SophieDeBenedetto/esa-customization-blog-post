@@ -75,3 +75,8 @@ Instantiate a new `Promise` object, giving it an anonymous function that takes t
 You can then chain functions onto your promise. The `then` function gets invoked if `resolve` was invoked, getting passed an argument of the return value of `resolved`. The `catch` function gets invoked if the `reject` function was invoked, getting passed an argument of the return value of  `reject`. 
 
 * run loop : https://guides.emberjs.com/v2.5.0/applications/run-loop/
+
+### The Authenticate Function
+
+Called by the session when the session needs to authenticate (okay but actually when is that?).Gets the credentials (INVOKED BY YOU, WHEN YOU CALL authenticate in your login or signin controller dummy), uses them to structure the ajax request. Creates new Promise that makes the ajax request, if success, resolve function sets token in localStorage to response, which is encrypted jwt token. If failure, passed error response to reject function. That error then can get passed to a catch function, if you use it. If success, pass return of resolve function to then function (optional. Our then functions don't really use that response. We are only trying to get the token into localStorage, not get a reasl response from API to display to user.)
+

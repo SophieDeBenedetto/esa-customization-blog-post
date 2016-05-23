@@ -70,3 +70,5 @@ export default Base.extend({
 Allows you to write asynchronous code in a synchronous fashion. a `Promise` object represents the data that will be returned by the web service in future. In the meantime the Promise object acts like a proxy to the actual data. Furthermore, you can attach callbacks to the Promise object which will be called once the actual data is available.
 
 Instantiate a new `Promise` object, giving it an anonymous function that takes two arguments, `resolve` and `reject`, which are both functions. Your anych code goes in the body of that parent anon function--i.e. making your ajax request. Then, if you get a successful response, invoke the resolve function, passing it an argument of the response, if you don't get a successful response back, invoke the reject function, passing it an argument of the error you got back from your web request. 
+
+You can then chain functions onto your promise. The `then` function gets invoked if `resolve` was invoked, getting passed an argument of the return value of `resolved`. The `catch` function gets invoked if the `reject` function was invoked, getting passed an argument of the return value of  `reject`. 
